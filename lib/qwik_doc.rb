@@ -3,6 +3,7 @@ $:.unshift File.join(File.dirname(__FILE__), "vendor")
 
 require 'qwik/wabisabi-format-xml'
 require 'qwik/parser'
+require 'qwik_doc/hack'
 
 module QwikDoc
   VERSION = "0.0.1"
