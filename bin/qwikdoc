@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path(File.dirname(__FILE__) + '/../lib')
+$LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
+require 'qwik_doc'
+require 'erb'
+
+HTML_TEMPLATE = <<EOS
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+<meta charset="utf-8">
+<title><%= title %></title>
+</head>
+<body>
+<%= body %>
+</body>
+</html>
+EOS
+
+def result(title, body, text)
+  erb = ERB.new(HTML_TEMPLATE)
+  erb.result(binding)
+end
+
+case ARGV.size
+when 0
+  title, text = '-', $stdin.read
+when 1
+  title, text = ARGV[0], File.read(ARGV[0])
+end
+
+body = QwikDoc.to_xhtml(text)
+puts result(title, body, text)
