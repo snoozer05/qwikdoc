@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-$:.unshift File.join(File.dirname(__FILE__), "vendor")
+$:.unshift File.join(File.dirname(__FILE__), "..", "vendor")
 
 require 'qwik/wabisabi-format-xml'
 require 'qwik/parser'
