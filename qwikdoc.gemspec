@@ -4,7 +4,7 @@ require "qwik_doc"
 Gem::Specification.new do |s|
   s.name        = "qwikdoc"
   s.version     = QwikDoc::VERSION
-  s.authors     = ["SHIMADA Koji"]
+  s.authors     = ["Koji Shimada"]
   s.email       = ["koji.shimada@enishi-tech.com"]
   s.homepage    = "https://github.com/snoozer05/qwikdoc"
   s.summary     = %q{text-to-HTML conversion tool for qwikWeb users}
